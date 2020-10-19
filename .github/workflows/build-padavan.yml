@@ -38,7 +38,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Reset golang dl url
       run: |
-        cd $WORK_PATH/trunk/tools
+        cd opt/rt-n56u/trunk/tools
         sudo chmod +x ./Makefile
         sed -i "s#https://studygolang.com/dl/golang#https://golang.org/dl#g" ./Makefile
         sed -i "s#go1.14.linux-amd64.tar.gz#go\$(go_version).linux-amd64.tar.gz#g" ./Makefile
