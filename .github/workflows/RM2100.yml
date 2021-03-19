@@ -175,17 +175,10 @@ jobs:
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/${TNAME}_ChongshengB_${{ steps.current-time.outputs.formattedTime }}.trx
         echo "FNAME=$TNAME" >> $GITHUB_ENV
-        - name: Organize files
-        id: organize
-        run: |
-          echo "###########################"
-          echo "###########################"
-          echo "###########################"
-          echo "::set-output name=status::success"
-        - name: Upload packages - push to artifact file
-        uses: actions/upload-artifact@main
-        if: steps.organize.outputs.status == 'success'
-        with:
-          name: Padavan-packages
-          path: /opt/images
-   
+    - name : Upload packages
+      uses: actions/upload-artifact@master
+      if: always()
+      with:
+        name: Padavan-packages
+        path: /opt/images
+        # if: steps.organize.outputs.status == 'success'
