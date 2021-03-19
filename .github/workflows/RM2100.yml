@@ -181,4 +181,3 @@ jobs:
       with:
         name: Padavan-packages
         path: /opt/images
-        # if: steps.organize.outputs.status == 'success'
